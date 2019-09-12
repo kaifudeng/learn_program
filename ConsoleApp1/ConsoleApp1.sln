@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "抄书的一些代码", "ConsoleApp1\抄书的一些代码.csproj", "{747184BC-F528-4DE1-A24D-E66F5BF2E126}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "namespace的相关练习", "namespace的相关练习\namespace的相关练习.csproj", "{033F70E6-736A-4490-8B08-FA11F7773F0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "多个main方法", "多个main方法\多个main方法.csproj", "{DAF9F63C-18C6-4815-A315-FB2445786196}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{747184BC-F528-4DE1-A24D-E66F5BF2E126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{747184BC-F528-4DE1-A24D-E66F5BF2E126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{747184BC-F528-4DE1-A24D-E66F5BF2E126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033F70E6-736A-4490-8B08-FA11F7773F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033F70E6-736A-4490-8B08-FA11F7773F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033F70E6-736A-4490-8B08-FA11F7773F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033F70E6-736A-4490-8B08-FA11F7773F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAF9F63C-18C6-4815-A315-FB2445786196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAF9F63C-18C6-4815-A315-FB2445786196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAF9F63C-18C6-4815-A315-FB2445786196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAF9F63C-18C6-4815-A315-FB2445786196}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
