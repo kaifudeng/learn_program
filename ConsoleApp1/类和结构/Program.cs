@@ -3,6 +3,11 @@
 
 namespace 类和结构
 {
+    struct Dimensions
+    {
+        public double Width=1;
+        public double Length=2;
+    }
     class PhoneCustomer
     {
         public const string DayOfSendingBill = "Monday";
