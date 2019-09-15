@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "重写tostring（）", "重
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "继承", "继承\继承.csproj", "{1382DE25-FC27-4B9E-AAFF-5685C85CB30C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "接口", "接口\接口.csproj", "{63802331-C465-4A97-8E66-20CA078620CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{1382DE25-FC27-4B9E-AAFF-5685C85CB30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1382DE25-FC27-4B9E-AAFF-5685C85CB30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1382DE25-FC27-4B9E-AAFF-5685C85CB30C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63802331-C465-4A97-8E66-20CA078620CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63802331-C465-4A97-8E66-20CA078620CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63802331-C465-4A97-8E66-20CA078620CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63802331-C465-4A97-8E66-20CA078620CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
