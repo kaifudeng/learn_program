@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型结构", "泛型结�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型方法", "泛型方法\泛型方法.csproj", "{DD0AC0D1-5022-46E5-88A7-4CD7CE660388}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "数组", "数组\数组.csproj", "{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{DD0AC0D1-5022-46E5-88A7-4CD7CE660388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD0AC0D1-5022-46E5-88A7-4CD7CE660388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD0AC0D1-5022-46E5-88A7-4CD7CE660388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
