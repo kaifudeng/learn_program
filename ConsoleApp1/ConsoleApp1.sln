@@ -17,17 +17,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "类和结构", "类和结�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "构造函数", "构造函数\构造函数.csproj", "{5DEE6405-6558-44F8-85C5-5F0BF6390AC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "弱引用", "弱引用\弱引用.csproj", "{FDBCD574-B8C2-48B2-AB51-924685DCDFD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "弱引用", "弱引用\弱引用.csproj", "{FDBCD574-B8C2-48B2-AB51-924685DCDFD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "重写tostring（）", "重写tostring（）\重写tostring（）.csproj", "{57FBB6D9-AC7A-4D91-93DD-8642C1AB2C8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "重写tostring（）", "重写tostring（）\重写tostring（）.csproj", "{57FBB6D9-AC7A-4D91-93DD-8642C1AB2C8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "继承", "继承\继承.csproj", "{1382DE25-FC27-4B9E-AAFF-5685C85CB30C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "继承", "继承\继承.csproj", "{1382DE25-FC27-4B9E-AAFF-5685C85CB30C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "接口", "接口\接口.csproj", "{63802331-C465-4A97-8E66-20CA078620CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "接口", "接口\接口.csproj", "{63802331-C465-4A97-8E66-20CA078620CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型", "泛型\泛型.csproj", "{1307BFC1-C3B2-418E-9832-CD403F1343E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型", "泛型\泛型.csproj", "{1307BFC1-C3B2-418E-9832-CD403F1343E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型文档管理器", "泛型文档管理器\泛型文档管理器.csproj", "{6321B1B2-E89D-4C77-B799-EBC1CE94F224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型文档管理器", "泛型文档管理器\泛型文档管理器.csproj", "{6321B1B2-E89D-4C77-B799-EBC1CE94F224}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型的继承", "泛型的继承\泛型的继承.csproj", "{E4BFA858-2AF0-49EA-9DB6-A2B53D494591}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{6321B1B2-E89D-4C77-B799-EBC1CE94F224}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6321B1B2-E89D-4C77-B799-EBC1CE94F224}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6321B1B2-E89D-4C77-B799-EBC1CE94F224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4BFA858-2AF0-49EA-9DB6-A2B53D494591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4BFA858-2AF0-49EA-9DB6-A2B53D494591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4BFA858-2AF0-49EA-9DB6-A2B53D494591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4BFA858-2AF0-49EA-9DB6-A2B53D494591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
