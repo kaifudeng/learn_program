@@ -8,15 +8,15 @@ namespace 泛型结构
    {
         public Nullable(T value)
         {
-            this.hasvalue = true;
+            this.hasValue = true;
             this.value = value;
         }
-        private bool hasvalue;
-        public bool Hasvalue
+        private bool hasValue;
+        public bool HasValue
         {
             get
             {
-                return hasvalue;
+                return hasValue;
             }
 
         }
@@ -25,7 +25,7 @@ namespace 泛型结构
         {
             get
             {
-                if (!hasvalue)
+                if (!hasValue)
                 {
                     throw new InvalidOperationException("no Value");
                 }
@@ -42,7 +42,7 @@ namespace 泛型结构
         }
         public override string ToString()
         {
-            if (!hasvalue)
+            if (!hasValue)
             
                 return String.Empty;
                 return this.value.ToString();
@@ -56,14 +56,14 @@ namespace 泛型结构
         {
             Nullable<int> x;
             x = 4;
-            x  =x+3;
-            if (x.Hasvalue)
+            x +=3;
+            if (x.HasValue)
             {
                 int y = x.Value;
             }
             x = null;
-            int? x1;
-            x1 = null;
+            
+            
         }
     }
 }

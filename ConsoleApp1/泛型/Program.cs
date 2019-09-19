@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace 泛型
 {
@@ -22,6 +24,7 @@ namespace 泛型
     public LinkedListNode<T> Next { get; internal set; }
     public LinkedListNode<T> Prev { get; internal set; }
     }
+    //这下面有错误
     public class LinkedList<T> : IEnumerable<T>
     {
         public LinkedListNode<T>First { get; private set; }
@@ -52,6 +55,7 @@ namespace 泛型
                 yield return current.Value;
                 current = current.Next;
             }
+         
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -74,7 +78,7 @@ namespace 泛型
             }
 
             var list3 = new LinkedList<string>();
-            list3.AddLast(2);
+            list3.AddLast("2");
             list3.AddLast("four");
             list3.AddLast("foo");
 

@@ -22,7 +22,7 @@ namespace 元组
             var result = MyClass.Divide(5, 2);
             Console.WriteLine("result of division: {0},reminder: {1}", result.Item1, result.Item2);
             var tuple = Tuple.Create<string, string, int, int, string, double, int,Tuple<int, int>>
-                {"ABC","CDE",1,2,"CBA",1.2,Tuple.Create<int, int>{ 52,3490} };    
+                ("ABC","CDE",1,2,"CBA",1.2,1,Tuple.Create<int, int>( 52,3490));    
         }
     }
 }

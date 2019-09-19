@@ -1,15 +1,16 @@
 ﻿using System;
-
+using System.Collections.Generic;
 namespace 泛型文档管理器
 {
-    public class DocumentManager<T>
+    public class DocumentManager<TDocument>
+        where TDocument:IDocument
     {
         
-        private readonly Queue<T> documentQueue = new Queue<T>();
+        private readonly Queue<TDocument> documentQueue = new Queue<TDocument>();
         public void DisplayAllDocument()
         {
             
-            foreach(T doc in documentQueue)
+            foreach(TDocument doc in documentQueue)
             {
 
                 Console.WriteLine(((IDocument)doc).Title);
@@ -19,10 +20,10 @@ namespace 泛型文档管理器
         {
             foreach(TDocument doc in documentQueue)
             {
-                Console.Write(doc.Title);
+                Console.WriteLine(doc.Title);
             }
         }
-        public void AddDocument(T doc)
+        public void AddDocument(TDocument doc)
         {
             lock (this)
             {
@@ -33,9 +34,9 @@ namespace 泛型文档管理器
         {
             get { return documentQueue.Count < 0; }
         }
-        public T GetDocument()
+        public TDocument GetDocument()
         {
-            T doc = default(T);
+            TDocument doc = default(TDocument);
             lock(this)
             {
                 doc = documentQueue.Dequeue();

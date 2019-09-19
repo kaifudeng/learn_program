@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-
+using System.Collections.Generic;
 
 namespace 数组
 {
@@ -22,9 +22,14 @@ namespace 数组
         {
             return String.Format("{0}  {1}",FirstName,LastName);
         }
+
+        public int CompareTo()
+        {
+            throw new NotImplementedException();
+        }
     }
     public interface IComparable<Person>
-        {public int CompareTo();
+        { int CompareTo();
 }
     class Program
     {
@@ -97,13 +102,13 @@ namespace 数组
 
             //复制数组
             int[] intArray1={1,2};
-            int[] intArray2=(int[])intArray1.clone();
+            int[] intArray2=(int[])intArray1.Clone();
 
             Person[] beatles={
                                               new Person{FirstName="John",LastName="Lennon"},
                                               new Person{FirstName="Paul",LastName="McCartney"}
                                         };
-            Person[] beatlesClone=(Person[])beatles.clone();
+            Person[] beatlesClone=(Person[])beatles.Clone();
 
             //数组排序
             string[] names=
@@ -131,7 +136,7 @@ namespace 数组
                 {
                 Console.WriteLine(p);
                 }
-            static int SumOfSegments(ArraySegment<int>[] segments)
+             int SumOfSegments(ArraySegment<int>[] segments)
             {
                 int sum = 0;
                 foreach(var segment in segments)
@@ -217,6 +222,9 @@ namespace 数组
                 {
                     get { return current; }
                 }
+
+                public string Current => throw new NotImplementedException();
+
                 void IDisposable.Dispose()
                 { }
             }

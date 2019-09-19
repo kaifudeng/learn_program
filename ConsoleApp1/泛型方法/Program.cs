@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace 泛型方法
 {
@@ -15,14 +16,8 @@ namespace 泛型方法
     
     class Program
     {
-       public void Swap<T>(ref T x, ref T y)
-        {
-            T temp;
-            temp = x;
-            x = y;
-            y = temp;
-        }
-        /*public static decimal Accumulate<TAccount>(IEnumerable<TAccount> source)
+       
+        public static decimal Accumulate<TAccount>(IEnumerable<TAccount> source)
         where TAccount:IAccount
         {
             decimal sum = 0;
@@ -33,14 +28,18 @@ namespace 泛型方法
             return sum;
 
         }
-        public class Account:IAccount
-        { }
+        public class Account : IAccount
+        {
+            public decimal balance => throw new NotImplementedException();
+
+            public string name => throw new NotImplementedException();
+        }
         public interface IAccount
         {
             decimal balance { get; }
             string name { get; }
         }
-        */
+        
         public class MethodOverloads
         {
             public void foo<T>(T obj)
@@ -58,10 +57,18 @@ namespace 泛型方法
         }
         static void Main(string[] args)
         {
+            void Swap<T>(ref T x, ref T y)
+            {
+                T temp;
+                temp = x;
+                x = y;
+                y = temp;
+            }
             int i, j;
             i = 4;
             j = 5;
-            //Swap(ref i, ref j);
+            
+            Swap<int>(ref i, ref j);
 
             
 
