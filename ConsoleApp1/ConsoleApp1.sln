@@ -29,15 +29,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型", "泛型\泛型.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型文档管理器", "泛型文档管理器\泛型文档管理器.csproj", "{6321B1B2-E89D-4C77-B799-EBC1CE94F224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型的继承", "泛型的继承\泛型的继承.csproj", "{E4BFA858-2AF0-49EA-9DB6-A2B53D494591}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型的继承", "泛型的继承\泛型的继承.csproj", "{E4BFA858-2AF0-49EA-9DB6-A2B53D494591}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型接口", "泛型接口\泛型接口.csproj", "{A90FA96D-32E8-4FD6-A059-A90F27BF5533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型接口", "泛型接口\泛型接口.csproj", "{A90FA96D-32E8-4FD6-A059-A90F27BF5533}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型结构", "泛型结构\泛型结构.csproj", "{9B4B2923-70CD-4712-A6D4-8CF184201118}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型结构", "泛型结构\泛型结构.csproj", "{9B4B2923-70CD-4712-A6D4-8CF184201118}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型方法", "泛型方法\泛型方法.csproj", "{DD0AC0D1-5022-46E5-88A7-4CD7CE660388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型方法", "泛型方法\泛型方法.csproj", "{DD0AC0D1-5022-46E5-88A7-4CD7CE660388}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "数组", "数组\数组.csproj", "{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "数组", "数组\数组.csproj", "{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "元组", "元组\元组.csproj", "{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
