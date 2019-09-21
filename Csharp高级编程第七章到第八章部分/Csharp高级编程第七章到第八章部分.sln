@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "运算符", "Csharp高级编程第七章到第八章部分\运算符.csproj", "{FA0538CE-4BD0-4203-B407-69EFB1D3E0F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "运算符重载", "运算符重载\运算符重载.csproj", "{049A04EC-8F5C-48E0-9CB3-763F50665A84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FA0538CE-4BD0-4203-B407-69EFB1D3E0F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA0538CE-4BD0-4203-B407-69EFB1D3E0F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA0538CE-4BD0-4203-B407-69EFB1D3E0F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{049A04EC-8F5C-48E0-9CB3-763F50665A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{049A04EC-8F5C-48E0-9CB3-763F50665A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{049A04EC-8F5C-48E0-9CB3-763F50665A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{049A04EC-8F5C-48E0-9CB3-763F50665A84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
