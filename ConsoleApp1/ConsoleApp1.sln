@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型方法", "泛型方�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "数组", "数组\数组.csproj", "{2DC0B7AC-F032-4FDC-9C4A-1595782C32FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "元组", "元组\元组.csproj", "{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "元组", "元组\元组.csproj", "{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "结构比较", "结构比较\结构比较.csproj", "{68E7107B-C5E4-473D-95CF-38FC45E491F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94AFA0EF-3B5B-4977-8E00-B172D3B838EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E7107B-C5E4-473D-95CF-38FC45E491F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E7107B-C5E4-473D-95CF-38FC45E491F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E7107B-C5E4-473D-95CF-38FC45E491F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E7107B-C5E4-473D-95CF-38FC45E491F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
