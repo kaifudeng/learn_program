@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csharp高级编程第九章到第十章内容", "Csharp高级编程第九章到第十章内容\Csharp高级编程第九章到第十章内容.csproj", "{ED3E33D5-7D16-44C6-85B8-6A09B92CBA24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "正则表达式", "正则表达式\正则表达式.csproj", "{B4059D2A-208F-4646-9CF2-7A784E2BE89B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED3E33D5-7D16-44C6-85B8-6A09B92CBA24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED3E33D5-7D16-44C6-85B8-6A09B92CBA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED3E33D5-7D16-44C6-85B8-6A09B92CBA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED3E33D5-7D16-44C6-85B8-6A09B92CBA24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4059D2A-208F-4646-9CF2-7A784E2BE89B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4059D2A-208F-4646-9CF2-7A784E2BE89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4059D2A-208F-4646-9CF2-7A784E2BE89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4059D2A-208F-4646-9CF2-7A784E2BE89B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C9DA7DF-B23F-46DF-8673-7296EC928177}
+	EndGlobalSection
+EndGlobal
