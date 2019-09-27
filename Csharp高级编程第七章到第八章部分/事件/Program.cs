@@ -45,7 +45,7 @@ namespace 事件
             Console.WriteLine("{0}:car{1} is new", name, e.Car);
         }
         //这下面的弱事件接口依然因为未知原因无法引用
-        public bool IweakEventListener.ReceiveWeakEvent(Type managerType,object sender,EventArgs e)
+         bool IweakEventListener.ReceiveWeakEvent(Type managerType,object sender,EventArgs e)
         {
             NewCarIsHere(sender, e as CarInfoEventArgs);
             return true;

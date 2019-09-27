@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csharp高级编程第九章到第十章内容", "Csharp高级编程第九章到第十章内容\Csharp高级编程第九章到第十章内容.csproj", "{ED3E33D5-7D16-44C6-85B8-6A09B92CBA24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Csharp高级编程第九章到第十章内容", "Csharp高级编程第九章到第十章内容\Csharp高级编程第九章到第十章内容.csproj", "{ED3E33D5-7D16-44C6-85B8-6A09B92CBA24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "正则表达式", "正则表达式\正则表达式.csproj", "{B4059D2A-208F-4646-9CF2-7A784E2BE89B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "正则表达式", "正则表达式\正则表达式.csproj", "{B4059D2A-208F-4646-9CF2-7A784E2BE89B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "列表", "列表\列表.csproj", "{D3648E87-42E4-4B67-8B5E-1B7809C1D304}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B4059D2A-208F-4646-9CF2-7A784E2BE89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4059D2A-208F-4646-9CF2-7A784E2BE89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4059D2A-208F-4646-9CF2-7A784E2BE89B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3648E87-42E4-4B67-8B5E-1B7809C1D304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3648E87-42E4-4B67-8B5E-1B7809C1D304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3648E87-42E4-4B67-8B5E-1B7809C1D304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3648E87-42E4-4B67-8B5E-1B7809C1D304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
