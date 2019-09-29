@@ -25,7 +25,7 @@ namespace 字典
         private readonly int number;
         public EmployeeId(string Id)
         {
-            //Contract.Requires<ArgumentNullException>(Id != null);
+           // Contract.Requires<ArgumentException>(Id != null, "problem"); 
             prefix = (Id.ToUpper())[0];
             int numlength = Id.Length - 1;
             try

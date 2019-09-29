@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Linq;
 
 namespace 列表
 {
@@ -157,6 +158,7 @@ namespace 列表
             {
                 Console.WriteLine(racers[i]);
             }
+
             foreach(Racer r in racers)
             {
                 Console.WriteLine(r);
@@ -187,6 +189,14 @@ namespace 列表
 
             //格式转换
             List<Person> people = racers.ConvertAll<Person>(r => new Person(r.FirstName + " " + r.LastName));
+
+            //lookup类P265
+            var lookupracers = racers.ToLookup(r => r.Country);
+            foreach(Racer r  in lookupracers["Michael"])
+            {
+                Console.WriteLine(r);
+            }
+
         }
         
         
