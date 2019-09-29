@@ -11,13 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "列表", "列表\列表.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "队列", "队列\队列.csproj", "{44A6F359-C679-449D-BDD7-5E7D2788F108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "栈", "栈\栈.csproj", "{FD3D3DC7-F9B2-4860-ADAA-1F932D93DCB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "栈", "栈\栈.csproj", "{FD3D3DC7-F9B2-4860-ADAA-1F932D93DCB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "链表", "链表\链表.csproj", "{7904C130-84C5-468B-BFA5-C201C55BDC8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "链表", "链表\链表.csproj", "{7904C130-84C5-468B-BFA5-C201C55BDC8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "有序列表", "有序列表\有序列表.csproj", "{51A582DE-1DDA-4636-AC0A-E070316889AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "有序列表", "有序列表\有序列表.csproj", "{51A582DE-1DDA-4636-AC0A-E070316889AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "字典", "字典\字典.csproj", "{F2C6B449-1908-44E2-AE00-6E2BCDBAF372}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "字典", "字典\字典.csproj", "{F2C6B449-1908-44E2-AE00-6E2BCDBAF372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "集", "集\集.csproj", "{7ED3BBF1-F6FB-4FC9-8CE6-66AFC777FF82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "位数组", "位数组\位数组.csproj", "{1D95C00B-EEA8-4BDC-82B4-A74BD196F351}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{F2C6B449-1908-44E2-AE00-6E2BCDBAF372}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2C6B449-1908-44E2-AE00-6E2BCDBAF372}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2C6B449-1908-44E2-AE00-6E2BCDBAF372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED3BBF1-F6FB-4FC9-8CE6-66AFC777FF82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED3BBF1-F6FB-4FC9-8CE6-66AFC777FF82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED3BBF1-F6FB-4FC9-8CE6-66AFC777FF82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED3BBF1-F6FB-4FC9-8CE6-66AFC777FF82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D95C00B-EEA8-4BDC-82B4-A74BD196F351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D95C00B-EEA8-4BDC-82B4-A74BD196F351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D95C00B-EEA8-4BDC-82B4-A74BD196F351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D95C00B-EEA8-4BDC-82B4-A74BD196F351}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
