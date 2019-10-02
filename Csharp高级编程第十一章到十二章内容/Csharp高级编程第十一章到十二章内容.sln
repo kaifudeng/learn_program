@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.1列表和实体", "1.1列表和实体\1.1列表和实体.csproj", "{C14DB881-1E60-454F-A112-89BA201B0C13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.3扩展方法", "1.3扩展方法\1.3扩展方法.csproj", "{B795290B-3E5E-4A38-9F5D-6C7A1A6B6206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.3扩展方法", "1.3扩展方法\1.3扩展方法.csproj", "{B795290B-3E5E-4A38-9F5D-6C7A1A6B6206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.4推迟查询", "1.4推迟查询\1.4推迟查询.csproj", "{90C625C1-639C-4175-AEB6-7CAB2BFB3EE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.0标准的查询操作符", "2.0标准的查询操作符\2.0标准的查询操作符.csproj", "{162DFAB8-6B19-4384-8B54-661693689026}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{B795290B-3E5E-4A38-9F5D-6C7A1A6B6206}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B795290B-3E5E-4A38-9F5D-6C7A1A6B6206}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B795290B-3E5E-4A38-9F5D-6C7A1A6B6206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90C625C1-639C-4175-AEB6-7CAB2BFB3EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90C625C1-639C-4175-AEB6-7CAB2BFB3EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90C625C1-639C-4175-AEB6-7CAB2BFB3EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90C625C1-639C-4175-AEB6-7CAB2BFB3EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{162DFAB8-6B19-4384-8B54-661693689026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{162DFAB8-6B19-4384-8B54-661693689026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{162DFAB8-6B19-4384-8B54-661693689026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{162DFAB8-6B19-4384-8B54-661693689026}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
