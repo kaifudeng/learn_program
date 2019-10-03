@@ -140,6 +140,14 @@ namespace _2._0标准的查询操作符
                 return championships;
             }return championships;
         }
+        private static IEnumerable<Racer> GetRacersByCar(string car)
+        {
+            return from r in Formulal.GetChampions()
+                   from c in r.Cars
+                   where c == Car
+                   orderby r.LastName
+                   select r;
+        }
     }
     public class Championship
     {
@@ -176,13 +184,13 @@ namespace _2._0标准的查询操作符
             var racers = from r in Formulal.GetChampions()
                          where r.wins > 15 && (r.Country == "china" || r.Country == "italy")
                          select r;
-            foreach(Racer racer in racers)
+            foreach (Racer racer in racers)
             {
-                Console.WriteLine("{0:A}",racer);
+                Console.WriteLine("{0:A}", racer);
             }
 
-            var racers2 = Formulal.GetChampions().Where(r=>r.wins>5&&
-            (r.Country=="china"||r.Country=="Italy")).Select (r=>r);
+            var racers2 = Formulal.GetChampions().Where(r => r.wins > 5 &&
+            (r.Country == "china" || r.Country == "Italy")).Select(r => r);
             foreach (Racer racer in racers2)
             {
                 Console.WriteLine("{0:A}", racer);
@@ -190,7 +198,7 @@ namespace _2._0标准的查询操作符
 
             var racers3 = Formulal.GetChampions().Where((r, Index) => r.LastName.StartsWith("A")
            && Index % 2 != 0);
-            foreach(Racer r in racers3)
+            foreach (Racer r in racers3)
             {
                 Console.WriteLine("{0:A}", r);
             }
@@ -198,7 +206,7 @@ namespace _2._0标准的查询操作符
             //Oftype方法
             object[] data = { "one", 2, 3, "four", "five", 6 };
             var query = data.OfType<string>();
-            foreach(var s in query)
+            foreach (var s in query)
             {
                 Console.WriteLine(s);
             }
@@ -209,7 +217,7 @@ namespace _2._0标准的查询操作符
                                  where c == "Ferrari"
                                  orderby r.LastName
                                  select r.FirstName + " " + r.LastName;
-           foreach(var r in ferrariDrivers)
+            foreach (var r in ferrariDrivers)
             {
                 Console.WriteLine(r);
             }
@@ -220,7 +228,7 @@ namespace _2._0标准的查询操作符
                           where r.Country == "Italy"
                           orderby r.wins descending
                           select r;
-            foreach(var r in racers4)
+            foreach (var r in racers4)
             {
                 Console.WriteLine(r);
             }
@@ -229,7 +237,7 @@ namespace _2._0标准的查询操作符
             var racers5 = (from r in Formulal.GetChampions()
                            orderby r.Country, r.LastName, r.FirstName
                            select r).Take(5);
-            foreach(var r in racers5)
+            foreach (var r in racers5)
             {
                 Console.WriteLine(r);
             }
@@ -251,7 +259,7 @@ namespace _2._0标准的查询操作符
             foreach (var item in countries)
             {
                 Console.WriteLine("{0,-10} {1}", item.Country, item.count);
-                foreach(var name in item.Racers)
+                foreach (var name in item.Racers)
                 {
                     Console.Write("{0};", name);
                 }
@@ -281,10 +289,10 @@ namespace _2._0标准的查询操作符
                                   {
                                       r.Year,
                                       Champion = r.Name,
-                                      Constructor=t==null?"no constructor championship":t.Name
+                                      Constructor = t == null ? "no constructor championship" : t.Name
                                   }).Take(5);
             Console.WriteLine("Year world champion\t Constructor Title");
-            foreach(var item in racersAndteams)
+            foreach (var item in racersAndteams)
             {
                 Console.WriteLine("{0}:{1,-20} {2}", item.Year, item.Champion, item.Constructor);
             }
@@ -334,19 +342,73 @@ namespace _2._0标准的查询操作符
                      select new
                      {
                          FirstName = r.FirstName,
-                         LastName=r.LastName,
-                         Wins=r.wins,
-                         Starts=r.Starts,
-                         Result=yearResults
+                         LastName = r.LastName,
+                         Wins = r.wins,
+                         Starts = r.Starts,
+                         Result = yearResults
                      }
                      );
-            foreach(var r in q)
+            foreach (var r in q)
             {
                 Console.WriteLine("{0} {1}", r.FirstName, r.LastName);
-                foreach(var result in r.Result)
+                foreach (var result in r.Result)
                 {
                     Console.WriteLine("{0} {1}.", result.year, result.position);
                 }
+            }
+            //集合操作
+            var ferrariDrivers = from r in
+                                  Formulal.GetChampions()
+                                 from c in r.Cars
+                                 where c == "Ferrari"
+                                 orderby r.LastName
+                                 select r;
+            Func<string, IEnumerable<Racer>> racersByCar =
+                car => from r in Formulal.GetChampions()
+                       from c in r.Cars
+                       where c == car
+                       orderby r.LastName
+                       select r;
+
+            Console.WriteLine();
+            //合并
+            var racernames = from r in Formulal.GetChampions()
+                             where r.Country == "Italy"
+                             orderby r.wins descending
+                             select new
+                             {
+                                 name = r.firstname + " " + r.lastname
+                             };
+            var racerNamesAndStarts = from r in Formulal.GetChampions()
+                                      where r.country == "Italy"
+                                      orderby r.wins descending
+                                      select new
+                                      {
+                                          LastName = r.LastName,
+                                          Starts = r.Starts
+                                      };
+            var racers = racernames.Zip(racerNamesAndStarts,
+                (first, second) => first.name + ",starts: " + second.starts);
+            foreach(var r in racers)
+            {
+                Console.WriteLine(r);
+            }
+            //分区
+            int pageSize = 5;
+            int numberPages = (int)Math.Ceiling(Formulal.GetChampions().Count() / (double)pageSize);
+            for(int page = 0; page < numberPages; page++)
+            {
+                Console.WriteLine("Page {0}", page);
+                var racers =
+                    (from r in Formulal.GetChampions()
+                     orderby r.LastName, r.FirstName
+                     select r.FirstName + " " + r.LastName).
+                     Skip(page * pageSize).Take(pageSize);
+                foreach(var name in racers)
+                {
+                    Console.WriteLine(name);
+                }
+                Console.WriteLine();
             }
 
         }
