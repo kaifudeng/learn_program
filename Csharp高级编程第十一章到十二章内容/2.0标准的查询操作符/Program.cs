@@ -411,6 +411,81 @@ namespace _2._0标准的查询操作符
                 Console.WriteLine();
             }
 
+            //聚合操作符
+            var query = from r in Formulal.GetChampions()
+                        let numberyears = r.years.Count()
+                        where numberyears >= 3
+                        orderby numberyears descending, r.lastname
+                        select new
+                        {
+                            Name = r.firstname + " " + lastname,
+                            TimeChampion = numberyears
+
+                        };
+            foreach(var r in query)
+            {
+                Console.WriteLine("{0} {1}",r.Name,r.TimeChampion);
+            }
+            //sum 方法
+            var conutries =
+                (from c in
+                     from f in Formulal.GetChampions()
+                     group r by r.country into c
+                     select new
+                     {
+                         Country = c.Key,
+                         Wins=(from r1 in c
+                               select r1.wins).Sum()
+                     }
+                     orderby c.wins descending,c.country
+                     select c).Take(5);
+            foreach (var country in countries)
+            {
+                Console.WriteLine("{0} {1}",country.Country,country.Wins);
+            }
+            //转换操作符
+            List<Racer> racersx = (from r in Formulal.GetChampions()
+                                  where r.starts >= 150
+                                  orderby r.starts descending
+                                  select r).ToList();
+            foreach (var racer in racersx)
+            {
+                Console.WriteLine("{0} {0:S}", racer);
+            }
+            //Tolookup方法
+            var racersn = (from r in Formulal.GetChampions()
+                           from c in r.cars
+                           select new
+                           {
+                               Car = c,
+                               Racer = r
+                           }).ToLookup(cr => cr.Car, cr => Racer);
+            if (racersn.Contains("Williams"))
+            {
+                foreach(var williamsRacer in racers["Williams"])
+                {
+                    Console.WriteLine(williamsRacer);
+                }
+            }
+            //Cast方法
+            var list = new ArrayList(Formulal.GetChampions()
+                as ICollection);
+            var query = from r in list.cast<Racer>()
+                        where r.country == "USA"
+                        orderby r.wins descending
+                        select r;
+            foreach(var racer in query)
+            {
+                Console.WriteLine("{0:A}", racer);
+            }
+
+            //生成操作符
+            var values = Enumerable.Range(1, 20);
+            foreach(var item in values)
+            {
+                Console.WriteLine("{0}", item);
+            }
+            Console.WriteLine();
         }
     }
 }
