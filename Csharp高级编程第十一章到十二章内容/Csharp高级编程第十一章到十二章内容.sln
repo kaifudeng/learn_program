@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.4推迟查询", "1.4推�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.0标准的查询操作符", "2.0标准的查询操作符\2.0标准的查询操作符.csproj", "{162DFAB8-6B19-4384-8B54-661693689026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.0并行Linq", "并行Linq\3.0并行Linq.csproj", "{F1D6EE50-4D1E-4904-94EA-EA00C9E33853}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.0并行Linq", "并行Linq\3.0并行Linq.csproj", "{F1D6EE50-4D1E-4904-94EA-EA00C9E33853}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.0表达式树", "4.0表达式树\4.0表达式树.csproj", "{5B987D83-EF26-41B4-A69A-1F6919BC58A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4.0表达式树", "4.0表达式树\4.0表达式树.csproj", "{5B987D83-EF26-41B4-A69A-1F6919BC58A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.2.0-dynamic类型", "12.2.0-dynamic类型\12.2.0-dynamic类型.csproj", "{F7D4BBBA-1A57-4A30-A8BD-EAA8947BEE00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{5B987D83-EF26-41B4-A69A-1F6919BC58A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B987D83-EF26-41B4-A69A-1F6919BC58A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B987D83-EF26-41B4-A69A-1F6919BC58A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7D4BBBA-1A57-4A30-A8BD-EAA8947BEE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D4BBBA-1A57-4A30-A8BD-EAA8947BEE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D4BBBA-1A57-4A30-A8BD-EAA8947BEE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D4BBBA-1A57-4A30-A8BD-EAA8947BEE00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
