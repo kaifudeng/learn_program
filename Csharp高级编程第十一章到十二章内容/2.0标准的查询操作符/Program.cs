@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 namespace _2._0标准的查询操作符
@@ -144,7 +145,7 @@ namespace _2._0标准的查询操作符
         {
             return from r in Formulal.GetChampions()
                    from c in r.Cars
-                   where c == Car
+                   where c == car
                    orderby r.LastName
                    select r;
         }
@@ -357,7 +358,7 @@ namespace _2._0标准的查询操作符
                 }
             }
             //集合操作
-            var ferrariDrivers = from r in
+            var ferrariDrivers1 = from r in
                                   Formulal.GetChampions()
                                  from c in r.Cars
                                  where c == "Ferrari"
@@ -377,19 +378,19 @@ namespace _2._0标准的查询操作符
                              orderby r.wins descending
                              select new
                              {
-                                 name = r.firstname + " " + r.lastname
+                                 name = r.FirstName + " " + r.LastName
                              };
             var racerNamesAndStarts = from r in Formulal.GetChampions()
-                                      where r.country == "Italy"
+                                      where r.Country == "Italy"
                                       orderby r.wins descending
                                       select new
                                       {
                                           LastName = r.LastName,
                                           Starts = r.Starts
                                       };
-            var racers = racernames.Zip(racerNamesAndStarts,
-                (first, second) => first.name + ",starts: " + second.starts);
-            foreach(var r in racers)
+            var racers1 = racernames.Zip(racerNamesAndStarts,
+                (first, second) => first.name + ",starts: " + second.Starts);
+            foreach(var r in racers1)
             {
                 Console.WriteLine(r);
             }
@@ -399,12 +400,12 @@ namespace _2._0标准的查询操作符
             for(int page = 0; page < numberPages; page++)
             {
                 Console.WriteLine("Page {0}", page);
-                var racers =
+                var racersA =
                     (from r in Formulal.GetChampions()
                      orderby r.LastName, r.FirstName
                      select r.FirstName + " " + r.LastName).
                      Skip(page * pageSize).Take(pageSize);
-                foreach(var name in racers)
+                foreach(var name in racersA)
                 {
                     Console.WriteLine(name);
                 }
@@ -412,17 +413,17 @@ namespace _2._0标准的查询操作符
             }
 
             //聚合操作符
-            var query = from r in Formulal.GetChampions()
-                        let numberyears = r.years.Count()
+            var query1 = from r in Formulal.GetChampions()
+                        let numberyears = r.Years.Count()
                         where numberyears >= 3
-                        orderby numberyears descending, r.lastname
+                        orderby numberyears descending, r.LastName
                         select new
                         {
-                            Name = r.firstname + " " + lastname,
+                            Name = r.FirstName + " " + r.LastName,
                             TimeChampion = numberyears
 
                         };
-            foreach(var r in query)
+            foreach(var r in query1)
             {
                 Console.WriteLine("{0} {1}",r.Name,r.TimeChampion);
             }
@@ -430,23 +431,23 @@ namespace _2._0标准的查询操作符
             var conutries =
                 (from c in
                      from f in Formulal.GetChampions()
-                     group r by r.country into c
+                     group f by f.Country into c
                      select new
                      {
                          Country = c.Key,
                          Wins=(from r1 in c
                                select r1.wins).Sum()
                      }
-                     orderby c.wins descending,c.country
+                     orderby c.Wins descending,c.Country
                      select c).Take(5);
             foreach (var country in countries)
             {
-                Console.WriteLine("{0} {1}",country.Country,country.Wins);
+                Console.WriteLine("{0} {1}",country.Country,country.count);
             }
             //转换操作符
             List<Racer> racersx = (from r in Formulal.GetChampions()
-                                  where r.starts >= 150
-                                  orderby r.starts descending
+                                  where r.Starts >= 150
+                                  orderby r.Starts descending
                                   select r).ToList();
             foreach (var racer in racersx)
             {
@@ -454,12 +455,12 @@ namespace _2._0标准的查询操作符
             }
             //Tolookup方法
             var racersn = (from r in Formulal.GetChampions()
-                           from c in r.cars
+                           from c in r.Cars
                            select new
                            {
                                Car = c,
                                Racer = r
-                           }).ToLookup(cr => cr.Car, cr => Racer);
+                           }).ToLookup(cr => cr.Car, cr => cr.Racer);
             if (racersn.Contains("Williams"))
             {
                 foreach(var williamsRacer in racers["Williams"])
@@ -470,8 +471,8 @@ namespace _2._0标准的查询操作符
             //Cast方法
             var list = new ArrayList(Formulal.GetChampions()
                 as ICollection);
-            var query = from r in list.cast<Racer>()
-                        where r.country == "USA"
+            var query3 = from r in list.Cast<Racer>()
+                        where r.Country == "USA"
                         orderby r.wins descending
                         select r;
             foreach(var racer in query)
