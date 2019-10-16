@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f2492d79763d446f9132cc30a1025cf6" Name="Diagram1">
+        <EntityTypeShape EntityType="BIDWDemoModel.DimArea" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.DimDate" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.DimHour" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.DimProduct" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.FactCustomerInfo" Width="2.125" PointX="7" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.FactOrderInfo" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.FactOrderInfo_ODS" Width="1.5" PointX="0.875" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.FactOrderProduct" Width="1.5" PointX="4" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.FactOrderProduct_ODS" Width="1.5" PointX="9.875" PointY="1.125" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

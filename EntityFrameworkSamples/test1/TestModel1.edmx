@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BIDWDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DimArea">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="AreaCode" Type="char" MaxLength="6" />
+          <Property Name="AreaName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProvinceName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DimDate">
+          <Key>
+            <PropertyRef Name="DateKey" />
+          </Key>
+          <Property Name="DateKey" Type="int" Nullable="false" />
+          <Property Name="FDateTime" Type="datetime" />
+          <Property Name="FDate" Type="varchar" MaxLength="10" />
+          <Property Name="FTheYear" Type="int" Nullable="false" />
+          <Property Name="FFiscal_Period" Type="tinyint" Nullable="false" />
+          <Property Name="FHalf_of_Year" Type="tinyint" />
+          <Property Name="FTheHalf" Type="varchar" MaxLength="20" />
+          <Property Name="FTheQuarter" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FQuarter_of_Year" Type="tinyint" Nullable="false" />
+          <Property Name="FTheMoth" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FMonth_of_Year" Type="tinyint" Nullable="false" />
+          <Property Name="FWeek_of_Year" Type="tinyint" Nullable="false" />
+          <Property Name="FDay_of_Month" Type="tinyint" Nullable="false" />
+          <Property Name="FTheDay" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FTheDay_chs" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FTheDay_en" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FTheMonth_chs" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FTheMoth_en" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FTheQuarter_chs" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FTheQuarter_en" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FDay_of_Week" Type="tinyint" />
+          <Property Name="FHalfYear_chs" Type="varchar" MaxLength="20" />
+          <Property Name="FFiveDay_of_Month" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="FDateMonth" Type="datetime" StoreGeneratedPattern="Computed" />
+          <Property Name="FFiveDay_of_Month_chs" Type="varchar" MaxLength="24" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="DimHour">
+          <Key>
+            <PropertyRef Name="HourKey" />
+          </Key>
+          <Property Name="HourKey" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DimProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ProductNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductPrice" Type="float" />
+          <Property Name="ProductCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProdcutSubCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductWeight" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“BIDWDemo.dbo.ETLMaxStamp”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="ETLMaxStamp">
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaxStamp" Type="bigint" />
+        </EntityType>-->
+        <EntityType Name="FactCustomerInfo">
+          <Key>
+            <PropertyRef Name="CustomeId" />
+          </Key>
+          <Property Name="CustomeId" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerLogonName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerGender" Type="char" MaxLength="2" />
+          <Property Name="CustomerTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerBirthday" Type="datetime" Nullable="false" />
+          <Property Name="CustomerAreaID" Type="int" />
+          <Property Name="CustomerBirthAreaID" Type="int" />
+          <Property Name="CustomerCreateDateKey" Type="int" />
+          <Property Name="CustomerAge" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="AgeArea" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FactOrderInfo">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="Seqno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="bigint" Nullable="false" />
+          <Property Name="OrderCustomerId" Type="int" />
+          <Property Name="OrderPrice" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="OrderDateKey" Type="int" />
+          <Property Name="OrderAddress" Type="nvarchar" MaxLength="2000" />
+          <Property Name="OrderHourKey" Type="int" />
+          <Property Name="OrderAreaID" Type="int" />
+          <Property Name="OrderWeight" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="FactOrderInfo_ODS">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="Seqno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="bigint" Nullable="false" />
+          <Property Name="OrderCustomerId" Type="int" />
+          <Property Name="OrderPrice" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="OrderDateKey" Type="int" />
+          <Property Name="OrderAddress" Type="nvarchar" MaxLength="2000" />
+          <Property Name="OrderHourKey" Type="int" />
+          <Property Name="OrderAreaID" Type="int" />
+          <Property Name="OrderWeight" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="FactOrderProduct">
+          <Key>
+            <PropertyRef Name="OrdPrdOrderID" />
+            <PropertyRef Name="OrdPrdProductId" />
+          </Key>
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrdPrdOrderID" Type="bigint" Nullable="false" />
+          <Property Name="OrdPrdProductId" Type="int" Nullable="false" />
+          <Property Name="OrdPrdCustomerID" Type="int" />
+          <Property Name="OrdPrdHour" Type="int" />
+          <Property Name="OrdPrdDateKey" Type="int" />
+          <Property Name="OrdPrdAreaID" Type="int" />
+          <Property Name="OrdPrdProductPrice" Type="float" />
+          <Property Name="OrdPrdProductNum" Type="float" />
+          <Property Name="OrdPrdAmount" Type="float" StoreGeneratedPattern="Computed" />
+          <Property Name="OrdPrdWeight" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="FactOrderProduct_ODS">
+          <Key>
+            <PropertyRef Name="OrdPrdOrderID" />
+            <PropertyRef Name="OrdPrdProductId" />
+          </Key>
+          <Property Name="SeqNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrdPrdOrderID" Type="bigint" Nullable="false" />
+          <Property Name="OrdPrdProductId" Type="int" Nullable="false" />
+          <Property Name="OrdPrdCustomerID" Type="int" />
+          <Property Name="OrdPrdHour" Type="int" />
+          <Property Name="OrdPrdDateKey" Type="int" />
+          <Property Name="OrdPrdAreaID" Type="int" />
+          <Property Name="OrdPrdProductPrice" Type="float" />
+          <Property Name="OrdPrdProductNum" Type="float" />
+          <Property Name="OrdPrdAmount" Type="float" StoreGeneratedPattern="Computed" />
+          <Property Name="OrdPrdWeight" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <Function Name="ETL_FromBIWebsite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="IncrementETL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="RPT_Customer_Price" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dateBeg" Type="date" Mode="In" />
+          <Parameter Name="dateend" Type="date" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Province" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="RPT_Customer_Price_A" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dateBeg" Type="date" Mode="In" />
+          <Parameter Name="dateend" Type="date" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Province" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="RPT_Customer_Type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dateBeg" Type="date" Mode="In" />
+          <Parameter Name="dateend" Type="date" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Province" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UF_SSRS_SPLIT_PARAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pString" Type="varchar" Mode="In" />
+          <Parameter Name="pDelimiter" Type="char" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ItemNumber" Type="bigint" />
+                <Property Name="Item" Type="varchar" MaxLength="8000" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="UP_Report_AreaInfo_Show" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="BIDWDemoModelStoreContainer">
+          <EntitySet Name="DimArea" EntityType="Self.DimArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DimDate" EntityType="Self.DimDate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DimHour" EntityType="Self.DimHour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DimProduct" EntityType="Self.DimProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FactCustomerInfo" EntityType="Self.FactCustomerInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FactOrderInfo" EntityType="Self.FactOrderInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FactOrderInfo_ODS" EntityType="Self.FactOrderInfo_ODS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FactOrderProduct" EntityType="Self.FactOrderProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FactOrderProduct_ODS" EntityType="Self.FactOrderProduct_ODS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BIDWDemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="UF_SSRS_SPLIT_PARAM_Result">
+          <Property Name="ItemNumber" Type="Int64" />
+          <Property Name="Item" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <EntityType Name="DimArea">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="AreaCode" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DimDate">
+          <Key>
+            <PropertyRef Name="DateKey" />
+          </Key>
+          <Property Name="DateKey" Type="Int32" Nullable="false" />
+          <Property Name="FDateTime" Type="DateTime" Precision="3" />
+          <Property Name="FDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FTheYear" Type="Int32" Nullable="false" />
+          <Property Name="FFiscal_Period" Type="Byte" Nullable="false" />
+          <Property Name="FHalf_of_Year" Type="Byte" />
+          <Property Name="FTheHalf" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FTheQuarter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FQuarter_of_Year" Type="Byte" Nullable="false" />
+          <Property Name="FTheMoth" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FMonth_of_Year" Type="Byte" Nullable="false" />
+          <Property Name="FWeek_of_Year" Type="Byte" Nullable="false" />
+          <Property Name="FDay_of_Month" Type="Byte" Nullable="false" />
+          <Property Name="FTheDay" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FTheDay_chs" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FTheDay_en" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FTheMonth_chs" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FTheMoth_en" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FTheQuarter_chs" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FTheQuarter_en" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FDay_of_Week" Type="Byte" />
+          <Property Name="FHalfYear_chs" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FFiveDay_of_Month" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FDateMonth" Type="DateTime" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <Property Name="FFiveDay_of_Month_chs" Type="String" MaxLength="24" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="DimHour">
+          <Key>
+            <PropertyRef Name="HourKey" />
+          </Key>
+          <Property Name="HourKey" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DimProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProductNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPrice" Type="Double" />
+          <Property Name="ProductCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProdcutSubCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductWeight" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="FactCustomerInfo">
+          <Key>
+            <PropertyRef Name="CustomeId" />
+          </Key>
+          <Property Name="CustomeId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerLogonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerGender" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CustomerTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerBirthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CustomerAreaID" Type="Int32" />
+          <Property Name="CustomerBirthAreaID" Type="Int32" />
+          <Property Name="CustomerCreateDateKey" Type="Int32" />
+          <Property Name="CustomerAge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="AgeArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="FactOrderInfo">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="Seqno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int64" Nullable="false" />
+          <Property Name="OrderCustomerId" Type="Int32" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OrderDateKey" Type="Int32" />
+          <Property Name="OrderAddress" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="OrderHourKey" Type="Int32" />
+          <Property Name="OrderAreaID" Type="Int32" />
+          <Property Name="OrderWeight" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="FactOrderInfo_ODS">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="Seqno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int64" Nullable="false" />
+          <Property Name="OrderCustomerId" Type="Int32" />
+          <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OrderDateKey" Type="Int32" />
+          <Property Name="OrderAddress" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="OrderHourKey" Type="Int32" />
+          <Property Name="OrderAreaID" Type="Int32" />
+          <Property Name="OrderWeight" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="FactOrderProduct">
+          <Key>
+            <PropertyRef Name="OrdPrdOrderID" />
+            <PropertyRef Name="OrdPrdProductId" />
+          </Key>
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrdPrdOrderID" Type="Int64" Nullable="false" />
+          <Property Name="OrdPrdProductId" Type="Int32" Nullable="false" />
+          <Property Name="OrdPrdCustomerID" Type="Int32" />
+          <Property Name="OrdPrdHour" Type="Int32" />
+          <Property Name="OrdPrdDateKey" Type="Int32" />
+          <Property Name="OrdPrdAreaID" Type="Int32" />
+          <Property Name="OrdPrdProductPrice" Type="Double" />
+          <Property Name="OrdPrdProductNum" Type="Double" />
+          <Property Name="OrdPrdAmount" Type="Double" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="OrdPrdWeight" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="FactOrderProduct_ODS">
+          <Key>
+            <PropertyRef Name="OrdPrdOrderID" />
+            <PropertyRef Name="OrdPrdProductId" />
+          </Key>
+          <Property Name="SeqNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrdPrdOrderID" Type="Int64" Nullable="false" />
+          <Property Name="OrdPrdProductId" Type="Int32" Nullable="false" />
+          <Property Name="OrdPrdCustomerID" Type="Int32" />
+          <Property Name="OrdPrdHour" Type="Int32" />
+          <Property Name="OrdPrdDateKey" Type="Int32" />
+          <Property Name="OrdPrdAreaID" Type="Int32" />
+          <Property Name="OrdPrdProductPrice" Type="Double" />
+          <Property Name="OrdPrdProductNum" Type="Double" />
+          <Property Name="OrdPrdAmount" Type="Double" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="OrdPrdWeight" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="BIDWDemoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DimArea" EntityType="Self.DimArea" />
+          <EntitySet Name="DimDate" EntityType="Self.DimDate" />
+          <EntitySet Name="DimHour" EntityType="Self.DimHour" />
+          <EntitySet Name="DimProduct" EntityType="Self.DimProduct" />
+          <EntitySet Name="FactCustomerInfo" EntityType="Self.FactCustomerInfo" />
+          <EntitySet Name="FactOrderInfo" EntityType="Self.FactOrderInfo" />
+          <EntitySet Name="FactOrderInfo_ODS" EntityType="Self.FactOrderInfo_ODS" />
+          <EntitySet Name="FactOrderProduct" EntityType="Self.FactOrderProduct" />
+          <EntitySet Name="FactOrderProduct_ODS" EntityType="Self.FactOrderProduct_ODS" />
+          <FunctionImport Name="UF_SSRS_SPLIT_PARAM" IsComposable="true" ReturnType="Collection(BIDWDemoModel.UF_SSRS_SPLIT_PARAM_Result)">
+            <Parameter Name="pString" Mode="In" Type="String" />
+            <Parameter Name="pDelimiter" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ETL_FromBIWebsite" />
+          <FunctionImport Name="IncrementETL" />
+          <FunctionImport Name="RPT_Customer_Price">
+            <Parameter Name="dateBeg" Mode="In" Type="DateTime" />
+            <Parameter Name="dateend" Mode="In" Type="DateTime" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Province" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RPT_Customer_Price_A">
+            <Parameter Name="dateBeg" Mode="In" Type="DateTime" />
+            <Parameter Name="dateend" Mode="In" Type="DateTime" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Province" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RPT_Customer_Type">
+            <Parameter Name="dateBeg" Mode="In" Type="DateTime" />
+            <Parameter Name="dateend" Mode="In" Type="DateTime" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Province" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UP_Report_AreaInfo_Show" ReturnType="Collection(BIDWDemoModel.UP_Report_AreaInfo_Show_Result)" />
+        </EntityContainer>
+        <ComplexType Name="UP_Report_AreaInfo_Show_Result">
+          <Property Type="String" Name="地域" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="城市" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="省名" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="商品数量" Nullable="true" />
+          <Property Type="Double" Name="商品价格" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BIDWDemoModelStoreContainer" CdmEntityContainer="BIDWDemoEntities">
+          <EntitySetMapping Name="DimArea">
+            <EntityTypeMapping TypeName="BIDWDemoModel.DimArea">
+              <MappingFragment StoreEntitySet="DimArea">
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+              </MappingFragment>
+              <MappingFragment StoreEntitySet="FactCustomerInfo" >
+                <ScalarProperty Name="AreaID" ColumnName="CustomerAreaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimDate">
+            <EntityTypeMapping TypeName="BIDWDemoModel.DimDate">
+              <MappingFragment StoreEntitySet="DimDate">
+                <ScalarProperty Name="DateKey" ColumnName="DateKey" />
+                <ScalarProperty Name="FDateTime" ColumnName="FDateTime" />
+                <ScalarProperty Name="FDate" ColumnName="FDate" />
+                <ScalarProperty Name="FTheYear" ColumnName="FTheYear" />
+                <ScalarProperty Name="FFiscal_Period" ColumnName="FFiscal_Period" />
+                <ScalarProperty Name="FHalf_of_Year" ColumnName="FHalf_of_Year" />
+                <ScalarProperty Name="FTheHalf" ColumnName="FTheHalf" />
+                <ScalarProperty Name="FTheQuarter" ColumnName="FTheQuarter" />
+                <ScalarProperty Name="FQuarter_of_Year" ColumnName="FQuarter_of_Year" />
+                <ScalarProperty Name="FTheMoth" ColumnName="FTheMoth" />
+                <ScalarProperty Name="FMonth_of_Year" ColumnName="FMonth_of_Year" />
+                <ScalarProperty Name="FWeek_of_Year" ColumnName="FWeek_of_Year" />
+                <ScalarProperty Name="FDay_of_Month" ColumnName="FDay_of_Month" />
+                <ScalarProperty Name="FTheDay" ColumnName="FTheDay" />
+                <ScalarProperty Name="FTheDay_chs" ColumnName="FTheDay_chs" />
+                <ScalarProperty Name="FTheDay_en" ColumnName="FTheDay_en" />
+                <ScalarProperty Name="FTheMonth_chs" ColumnName="FTheMonth_chs" />
+                <ScalarProperty Name="FTheMoth_en" ColumnName="FTheMoth_en" />
+                <ScalarProperty Name="FTheQuarter_chs" ColumnName="FTheQuarter_chs" />
+                <ScalarProperty Name="FTheQuarter_en" ColumnName="FTheQuarter_en" />
+                <ScalarProperty Name="FDay_of_Week" ColumnName="FDay_of_Week" />
+                <ScalarProperty Name="FHalfYear_chs" ColumnName="FHalfYear_chs" />
+                <ScalarProperty Name="FFiveDay_of_Month" ColumnName="FFiveDay_of_Month" />
+                <ScalarProperty Name="FDateMonth" ColumnName="FDateMonth" />
+                <ScalarProperty Name="FFiveDay_of_Month_chs" ColumnName="FFiveDay_of_Month_chs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimHour">
+            <EntityTypeMapping TypeName="BIDWDemoModel.DimHour">
+              <MappingFragment StoreEntitySet="DimHour">
+                <ScalarProperty Name="HourKey" ColumnName="HourKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimProduct">
+            <EntityTypeMapping TypeName="BIDWDemoModel.DimProduct">
+              <MappingFragment StoreEntitySet="DimProduct">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="ProdcutSubCategory" ColumnName="ProdcutSubCategory" />
+                <ScalarProperty Name="ProductWeight" ColumnName="ProductWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactCustomerInfo">
+            <EntityTypeMapping TypeName="BIDWDemoModel.FactCustomerInfo">
+              <MappingFragment StoreEntitySet="FactCustomerInfo">
+                <ScalarProperty Name="CustomeId" ColumnName="CustomeId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerLogonName" ColumnName="CustomerLogonName" />
+                <ScalarProperty Name="CustomerGender" ColumnName="CustomerGender" />
+                <ScalarProperty Name="CustomerTel" ColumnName="CustomerTel" />
+                <ScalarProperty Name="CustomerBirthday" ColumnName="CustomerBirthday" />
+                <ScalarProperty Name="CustomerAreaID" ColumnName="CustomerAreaID" />
+                <ScalarProperty Name="CustomerBirthAreaID" ColumnName="CustomerBirthAreaID" />
+                <ScalarProperty Name="CustomerCreateDateKey" ColumnName="CustomerCreateDateKey" />
+                <ScalarProperty Name="CustomerAge" ColumnName="CustomerAge" />
+                <ScalarProperty Name="AgeArea" ColumnName="AgeArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactOrderInfo">
+            <EntityTypeMapping TypeName="BIDWDemoModel.FactOrderInfo">
+              <MappingFragment StoreEntitySet="FactOrderInfo">
+                <ScalarProperty Name="Seqno" ColumnName="Seqno" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderCustomerId" ColumnName="OrderCustomerId" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderDateKey" ColumnName="OrderDateKey" />
+                <ScalarProperty Name="OrderAddress" ColumnName="OrderAddress" />
+                <ScalarProperty Name="OrderHourKey" ColumnName="OrderHourKey" />
+                <ScalarProperty Name="OrderAreaID" ColumnName="OrderAreaID" />
+                <ScalarProperty Name="OrderWeight" ColumnName="OrderWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactOrderInfo_ODS">
+            <EntityTypeMapping TypeName="BIDWDemoModel.FactOrderInfo_ODS">
+              <MappingFragment StoreEntitySet="FactOrderInfo_ODS">
+                <ScalarProperty Name="Seqno" ColumnName="Seqno" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderCustomerId" ColumnName="OrderCustomerId" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OrderDateKey" ColumnName="OrderDateKey" />
+                <ScalarProperty Name="OrderAddress" ColumnName="OrderAddress" />
+                <ScalarProperty Name="OrderHourKey" ColumnName="OrderHourKey" />
+                <ScalarProperty Name="OrderAreaID" ColumnName="OrderAreaID" />
+                <ScalarProperty Name="OrderWeight" ColumnName="OrderWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactOrderProduct">
+            <EntityTypeMapping TypeName="BIDWDemoModel.FactOrderProduct">
+              <MappingFragment StoreEntitySet="FactOrderProduct">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="OrdPrdOrderID" ColumnName="OrdPrdOrderID" />
+                <ScalarProperty Name="OrdPrdProductId" ColumnName="OrdPrdProductId" />
+                <ScalarProperty Name="OrdPrdCustomerID" ColumnName="OrdPrdCustomerID" />
+                <ScalarProperty Name="OrdPrdHour" ColumnName="OrdPrdHour" />
+                <ScalarProperty Name="OrdPrdDateKey" ColumnName="OrdPrdDateKey" />
+                <ScalarProperty Name="OrdPrdAreaID" ColumnName="OrdPrdAreaID" />
+                <ScalarProperty Name="OrdPrdProductPrice" ColumnName="OrdPrdProductPrice" />
+                <ScalarProperty Name="OrdPrdProductNum" ColumnName="OrdPrdProductNum" />
+                <ScalarProperty Name="OrdPrdAmount" ColumnName="OrdPrdAmount" />
+                <ScalarProperty Name="OrdPrdWeight" ColumnName="OrdPrdWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactOrderProduct_ODS">
+            <EntityTypeMapping TypeName="BIDWDemoModel.FactOrderProduct_ODS">
+              <MappingFragment StoreEntitySet="FactOrderProduct_ODS">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="OrdPrdOrderID" ColumnName="OrdPrdOrderID" />
+                <ScalarProperty Name="OrdPrdProductId" ColumnName="OrdPrdProductId" />
+                <ScalarProperty Name="OrdPrdCustomerID" ColumnName="OrdPrdCustomerID" />
+                <ScalarProperty Name="OrdPrdHour" ColumnName="OrdPrdHour" />
+                <ScalarProperty Name="OrdPrdDateKey" ColumnName="OrdPrdDateKey" />
+                <ScalarProperty Name="OrdPrdAreaID" ColumnName="OrdPrdAreaID" />
+                <ScalarProperty Name="OrdPrdProductPrice" ColumnName="OrdPrdProductPrice" />
+                <ScalarProperty Name="OrdPrdProductNum" ColumnName="OrdPrdProductNum" />
+                <ScalarProperty Name="OrdPrdAmount" ColumnName="OrdPrdAmount" />
+                <ScalarProperty Name="OrdPrdWeight" ColumnName="OrdPrdWeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="BIDWDemoModel.Store.UF_SSRS_SPLIT_PARAM" FunctionImportName="UF_SSRS_SPLIT_PARAM">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BIDWDemoModel.UF_SSRS_SPLIT_PARAM_Result">
+                <ScalarProperty Name="ItemNumber" ColumnName="ItemNumber" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ETL_FromBIWebsite" FunctionName="BIDWDemoModel.Store.ETL_FromBIWebsite" />
+          <FunctionImportMapping FunctionImportName="IncrementETL" FunctionName="BIDWDemoModel.Store.IncrementETL" />
+          <FunctionImportMapping FunctionImportName="RPT_Customer_Price" FunctionName="BIDWDemoModel.Store.RPT_Customer_Price" />
+          <FunctionImportMapping FunctionImportName="RPT_Customer_Price_A" FunctionName="BIDWDemoModel.Store.RPT_Customer_Price_A" />
+          <FunctionImportMapping FunctionImportName="RPT_Customer_Type" FunctionName="BIDWDemoModel.Store.RPT_Customer_Type" />
+          <FunctionImportMapping FunctionImportName="UP_Report_AreaInfo_Show" FunctionName="BIDWDemoModel.Store.UP_Report_AreaInfo_Show">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BIDWDemoModel.UP_Report_AreaInfo_Show_Result">
+                <ScalarProperty Name="地域" ColumnName="地域" />
+                <ScalarProperty Name="城市" ColumnName="城市" />
+                <ScalarProperty Name="省名" ColumnName="省名" />
+                <ScalarProperty Name="商品数量" ColumnName="商品数量" />
+                <ScalarProperty Name="商品价格" ColumnName="商品价格" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
