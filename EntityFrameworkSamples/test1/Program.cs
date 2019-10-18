@@ -20,14 +20,22 @@ namespace test1
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            using(var data =new BIDWDemoEntities())
+            /*using(var data =new BIDWDemoEntities())
             {
                 foreach (var area in data.DimHour)
                 {
                     Console.WriteLine(area.HourKey);
                 }
-            }
+            }*/
             Console.Read();
+
+            using (var data = new BIDWDemoEntities())
+            {
+                foreach(var item in data.test1Set)
+                {
+                    Console.WriteLine(item.CustomerNameT, item.CustomerAreaName);
+                }
+            }
         }
     }
     

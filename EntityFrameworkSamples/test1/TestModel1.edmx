@@ -209,6 +209,7 @@
           <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProvinceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerAreaName" Relationship="BIDWDemoModel.test1DimArea" FromRole="DimArea" ToRole="test1" />
         </EntityType>
         <EntityType Name="DimDate">
           <Key>
@@ -273,6 +274,7 @@
           <Property Name="CustomerCreateDateKey" Type="Int32" />
           <Property Name="CustomerAge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="AgeArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="CustomerNameT" Relationship="BIDWDemoModel.test1FactCustomerInfo" FromRole="FactCustomerInfo" ToRole="test1" />
         </EntityType>
         <EntityType Name="FactOrderInfo">
           <Key>
@@ -371,6 +373,15 @@
             <Parameter Name="Province" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="UP_Report_AreaInfo_Show" ReturnType="Collection(BIDWDemoModel.UP_Report_AreaInfo_Show_Result)" />
+          <EntitySet Name="test1Set" EntityType="BIDWDemoModel.test1" />
+          <AssociationSet Name="test1DimArea" Association="BIDWDemoModel.test1DimArea">
+            <End Role="test1" EntitySet="test1Set" />
+            <End Role="DimArea" EntitySet="DimArea" />
+          </AssociationSet>
+          <AssociationSet Name="test1FactCustomerInfo" Association="BIDWDemoModel.test1FactCustomerInfo">
+            <End Role="test1" EntitySet="test1Set" />
+            <End Role="FactCustomerInfo" EntitySet="FactCustomerInfo" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="UP_Report_AreaInfo_Show_Result">
           <Property Type="String" Name="地域" Nullable="true" MaxLength="50" />
@@ -379,6 +390,24 @@
           <Property Type="Double" Name="商品数量" Nullable="true" />
           <Property Type="Double" Name="商品价格" Nullable="true" />
         </ComplexType>
+        <EntityType Name="test1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerNameT" Type="String" Nullable="false" />
+          <Property Name="CustomerAreaName" Type="String" Nullable="false" />
+          <NavigationProperty Name="AreaName" Relationship="BIDWDemoModel.test1DimArea" FromRole="test1" ToRole="DimArea" />
+          <NavigationProperty Name="CustomerName" Relationship="BIDWDemoModel.test1FactCustomerInfo" FromRole="test1" ToRole="FactCustomerInfo" />
+        </EntityType>
+        <Association Name="test1DimArea">
+          <End Type="BIDWDemoModel.test1" Role="test1" Multiplicity="1" />
+          <End Type="BIDWDemoModel.DimArea" Role="DimArea" Multiplicity="1" />
+        </Association>
+        <Association Name="test1FactCustomerInfo">
+          <End Type="BIDWDemoModel.test1" Role="test1" Multiplicity="1" />
+          <End Type="BIDWDemoModel.FactCustomerInfo" Role="FactCustomerInfo" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -555,6 +584,30 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="test1Set">
+            <EntityTypeMapping TypeName="IsTypeOf(BIDWDemoModel.test1)">
+              <MappingFragment StoreEntitySet="DimArea" >
+                <ScalarProperty Name="CustomerAreaName" ColumnName="AreaName" />
+              </MappingFragment>
+              <MappingFragment StoreEntitySet="FactCustomerInfo" >
+                <ScalarProperty Name="CustomerNameT" ColumnName="CustomerName" />
+                <ScalarProperty Name="Id" ColumnName="CustomeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="test1FactCustomerInfo" TypeName="BIDWDemoModel.test1FactCustomerInfo" StoreEntitySet="FactCustomerInfo">
+            <EndProperty Name="test1">
+              <ScalarProperty Name="Id" ColumnName="CustomeId" />
+            </EndProperty>
+            <EndProperty Name="FactCustomerInfo">
+              <ScalarProperty Name="CustomeId" ColumnName="CustomeId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="test1DimArea" TypeName="BIDWDemoModel.test1DimArea" StoreEntitySet="DimArea">
+            <EndProperty Name="DimArea">
+              <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

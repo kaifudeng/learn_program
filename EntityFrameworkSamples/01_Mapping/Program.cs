@@ -7,8 +7,8 @@ namespace Wrox.ProCSharp.Entities
   {
     static void Main(string[] args)
     {
-       ReadBooks();
-      //PaymentsDemo();
+       //ReadBooks();
+      PaymentsDemo();
       //PaymentWithType();
     }
 

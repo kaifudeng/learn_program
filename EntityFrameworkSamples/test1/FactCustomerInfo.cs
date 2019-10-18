@@ -25,5 +25,7 @@ namespace test1
         public Nullable<int> CustomerCreateDateKey { get; set; }
         public int CustomerAge { get; set; }
         public int AgeArea { get; set; }
+    
+        public virtual test1 CustomerNameT { get; set; }
     }
 }

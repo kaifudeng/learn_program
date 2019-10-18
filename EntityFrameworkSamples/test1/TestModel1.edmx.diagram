@@ -13,7 +13,10 @@
         <EntityTypeShape EntityType="BIDWDemoModel.FactOrderInfo" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BIDWDemoModel.FactOrderInfo_ODS" Width="1.5" PointX="0.875" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BIDWDemoModel.FactOrderProduct" Width="1.5" PointX="4" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BIDWDemoModel.FactOrderProduct_ODS" Width="1.5" PointX="9.875" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.FactOrderProduct_ODS" Width="3.125" PointX="9.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIDWDemoModel.test1" Width="2" PointX="12.375" PointY="4.375" />
+        <AssociationConnector Association="BIDWDemoModel.test1DimArea" />
+        <AssociationConnector Association="BIDWDemoModel.test1FactCustomerInfo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

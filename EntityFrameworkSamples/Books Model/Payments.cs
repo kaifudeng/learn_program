@@ -7,19 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace test1
+namespace Books_Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DimArea
+    public partial class Payments
     {
-        public int AreaID { get; set; }
-        public string AreaCode { get; set; }
-        public string AreaName { get; set; }
-        public string CityName { get; set; }
-        public string ProvinceName { get; set; }
-    
-        public virtual test1 CustomerAreaName { get; set; }
+        public int Id { get; set; }
+        public decimal Amount { get; set; }
+        public string Name { get; set; }
+        public string BankName { get; set; }
+        public string CreditCardNumber { get; set; }
+        public string Type { get; set; }
     }
 }

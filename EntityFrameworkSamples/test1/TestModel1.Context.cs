@@ -36,6 +36,7 @@ namespace test1
         public virtual DbSet<FactOrderInfo_ODS> FactOrderInfo_ODS { get; set; }
         public virtual DbSet<FactOrderProduct> FactOrderProduct { get; set; }
         public virtual DbSet<FactOrderProduct_ODS> FactOrderProduct_ODS { get; set; }
+        public virtual DbSet<test1> test1Set { get; set; }
     
         [DbFunction("BIDWDemoEntities", "UF_SSRS_SPLIT_PARAM")]
         public virtual IQueryable<UF_SSRS_SPLIT_PARAM_Result> UF_SSRS_SPLIT_PARAM(string pString, string pDelimiter)

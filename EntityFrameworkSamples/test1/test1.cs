@@ -12,14 +12,13 @@ namespace test1
     using System;
     using System.Collections.Generic;
     
-    public partial class DimArea
+    public partial class test1
     {
-        public int AreaID { get; set; }
-        public string AreaCode { get; set; }
-        public string AreaName { get; set; }
-        public string CityName { get; set; }
-        public string ProvinceName { get; set; }
+        public int Id { get; set; }
+        public string CustomerNameT { get; set; }
+        public string CustomerAreaName { get; set; }
     
-        public virtual test1 CustomerAreaName { get; set; }
+        public virtual DimArea AreaName { get; set; }
+        public virtual FactCustomerInfo CustomerName { get; set; }
     }
 }
