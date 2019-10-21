@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
+using System.Data.Entity;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
@@ -109,6 +110,66 @@ namespace RacersModel
                     label1.Text += "\n" + r.Racer.FirstName + " " + r.Racer.LastName;
                     label2.Text += "\n" + r.Podium;
                 }
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using(var data =new Formula1v2Entities())
+            {
+                var esteban = data.Racers.Create();
+                esteban.FirstName = textBox1.Text;
+                esteban.LastName = textBox2.Text;
+                esteban.Nationality = textBox3.Text;
+                esteban.Starts = 0;
+                data.Racers.Add(esteban);
+                data.SaveChanges();
+                Racers fernando = data.Racers.Where(
+                    r => r.LastName == "Alonso").First();
+                fernando.Wins++;
+                fernando.Starts++;
+
+                foreach(DbEntityEntry<Racers> entry in
+                    data.ChangeTracker.Entries<Racers>())
+                {
+                    label1.Text += "\n" + entry.Entity;
+                    label2.Text += "\n" +"State:"+ entry.State;
+                    if (entry.State == EntityState.Modified)
+                    {
+                        label1.Text += "\n" + "Original values";
+                        label2.Text += "\n";
+                        DbPropertyValues values = entry.OriginalValues;
+                        foreach(string propName in values.PropertyNames)
+                        {
+                            label1.Text += "\n" + propName;
+                            label2.Text += "\n" + values[propName];
+                        }
+                        label1.Text += "\n" + "Current values";
+                        label2.Text += "\n";
+                        values = entry.CurrentValues;
+                        foreach(string propName in values.PropertyNames)
+                        {
+                            label1.Text += "\n" + propName;
+                            label2.Text += "\n" + values[propName];
+                        }
+                    }
+                }
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            using (var data = new Formula1v2Entities())
+            {
+                IQueryable<Racers> racers = data.Racers.Where(
+                    r => r.LastName == "Alonso").AsNoTracking();
+                Racers fernando = racers.First();
+                fernando.Starts++;
             }
         }
     }
