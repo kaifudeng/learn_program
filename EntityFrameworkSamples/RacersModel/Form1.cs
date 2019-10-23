@@ -19,6 +19,8 @@ namespace RacersModel
 {
     public partial class Form1 : Form
     {
+        
+        
         public Form1()
         {
             InitializeComponent();
@@ -120,7 +122,7 @@ namespace RacersModel
 
         private void button6_Click(object sender, EventArgs e)
         {
-            using(var data =new Formula1v2Entities())
+            using (var data = new Formula1v2Entities())
             {
                 var esteban = data.Racers.Create();
                 esteban.FirstName = textBox1.Text;
@@ -134,17 +136,17 @@ namespace RacersModel
                 fernando.Wins++;
                 fernando.Starts++;
 
-                foreach(DbEntityEntry<Racers> entry in
+                foreach (DbEntityEntry<Racers> entry in
                     data.ChangeTracker.Entries<Racers>())
                 {
                     label1.Text += "\n" + entry.Entity;
-                    label2.Text += "\n" +"State:"+ entry.State;
+                    label2.Text += "\n" + "State:" + entry.State;
                     if (entry.State == EntityState.Modified)
                     {
                         label1.Text += "\n" + "Original values";
                         label2.Text += "\n";
                         DbPropertyValues values = entry.OriginalValues;
-                        foreach(string propName in values.PropertyNames)
+                        foreach (string propName in values.PropertyNames)
                         {
                             label1.Text += "\n" + propName;
                             label2.Text += "\n" + values[propName];
@@ -152,7 +154,7 @@ namespace RacersModel
                         label1.Text += "\n" + "Current values";
                         label2.Text += "\n";
                         values = entry.CurrentValues;
-                        foreach(string propName in values.PropertyNames)
+                        foreach (string propName in values.PropertyNames)
                         {
                             label1.Text += "\n" + propName;
                             label2.Text += "\n" + values[propName];
@@ -170,6 +172,97 @@ namespace RacersModel
                     r => r.LastName == "Alonso").AsNoTracking();
                 Racers fernando = racers.First();
                 fernando.Starts++;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            using (var data = new Formula1v2Entities())
+            {
+                var racers = from r in data.Racers
+                             where r.FirstName == textBox1.Text ||
+                             r.LastName == textBox2.Text ||
+                             r.Nationality == textBox3.Text
+                             select r;
+                foreach (var r in racers)
+                {
+                    label1.Text += "\n" + r.FirstName + " " + r.LastName;
+                    label2.Text += "\n" + r.Nationality;
+                }
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            label1.Text = "";
+            label2.Text = "";
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            using (var data = new Formula1v2Entities())
+            {
+                Racers del = (from r in data.Racers
+                              where r.FirstName == textBox1.Text
+                              && r.LastName == textBox2.Text
+                              select r).First();
+                data.Racers.Remove(del);
+                data.SaveChanges();
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+            using (var data = new Formula1v2Entities())
+            {
+                Racers upd = (from r in data.Racers
+                              where r.FirstName == textBox1.Text
+                              && r.LastName == textBox2.Text
+                              select r).First();
+                data.Racers.Remove(upd);
+                data.SaveChanges();
+                textBox1.BackColor = Color.Blue;
+                textBox2.BackColor = Color.Blue;
+                textBox3.BackColor = Color.Blue;
+            }
+        }
+
+      
+
+        private void button13_Click_1(object sender, EventArgs e)
+        {
+            using (var data = new Formula1v2Entities())
+            {
+                var add = data.Racers.Create();
+                add.FirstName = textBox1.Text;
+                add.LastName = textBox2.Text;
+                add.Nationality = textBox3.Text;
+                add.Starts = 0;
+                data.Racers.Add(add);
+                data.SaveChanges();
+            }
+            textBox1.BackColor = Color.White;
+            textBox2.BackColor = Color.White;
+            textBox3.BackColor = Color.White;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            using(var data=new Formula1v2Entities())
+            {
+                var racers = from r in data.Racers
+                             select r;
+                foreach(var r in racers)
+                {
+                    label1.Text += "\n" + r.FirstName + "\t" + r.LastName;
+                    label2.Text += "\n" + r.Nationality;
+                }
             }
         }
     }

@@ -8,7 +8,7 @@ namespace Wrox.ProCSharp.Entities
   {
     public MyDatabaseConfiguration()
     {
-      // this.SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
+       this.SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
 
     }
   }

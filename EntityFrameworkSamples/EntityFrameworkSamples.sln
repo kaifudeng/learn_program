@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Books Model", "Books Model\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RacersModel", "RacersModel\RacersModel.csproj", "{05E8B0CE-D7EA-41B4-9D15-824D8D209762}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst", "CodeFirst\CodeFirst.csproj", "{AA5AA300-7BA6-4334-8572-5BC14834A7E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{05E8B0CE-D7EA-41B4-9D15-824D8D209762}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05E8B0CE-D7EA-41B4-9D15-824D8D209762}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05E8B0CE-D7EA-41B4-9D15-824D8D209762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5AA300-7BA6-4334-8572-5BC14834A7E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5AA300-7BA6-4334-8572-5BC14834A7E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5AA300-7BA6-4334-8572-5BC14834A7E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5AA300-7BA6-4334-8572-5BC14834A7E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

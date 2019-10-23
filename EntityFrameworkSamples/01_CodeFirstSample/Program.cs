@@ -11,10 +11,10 @@ namespace Wrox.ProCSharp.Entities
   {
     static void Main(string[] args)
     {
-      // CreateMenus().Wait();
+      CreateMenus().Wait();
       // QueryMenus();
       // EagerLoadingQuery();
-      FillDatabase();
+      //FillDatabase();
 
       // SameReference().Wait();
       // SameReference();
