@@ -9,8 +9,10 @@ namespace CodeFirst
 {
     class MenuContext:DbContext
     {
-        
-        public MenuContext()
+        private const string connectionString =
+            @"server=(localdb)\v11.0;database=DemoMenus;" +
+            "trusted_connection=true";
+        public MenuContext():base(connectionString)
           
         {
         }
