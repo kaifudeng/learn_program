@@ -49,5 +49,10 @@ namespace _12._3._0_包含DLR_ScriptRuntime
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

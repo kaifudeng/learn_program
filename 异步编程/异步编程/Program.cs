@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System.Windows;
 namespace 异步编程
 {
     class Program
     {
+      
         static void Main(string[] args)
         {
             CallerWithAsync();
             CallerWithAsync2();
-            //MultipleAsyncMethods();
-            //MultipLeAsyncMethodsWithCombinators1();
+            MultipLeAsyncMethodsWithCombinators1();
+            MultipLeAsyncMethodsWithCombinators2();
+
+
         }
         static string Greeting(string name)
         {
