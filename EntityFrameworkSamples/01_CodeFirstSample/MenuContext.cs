@@ -4,7 +4,7 @@ namespace Wrox.ProCSharp.Entities
 {
   public class MenuContext : DbContext
   {
-    private const string connectionString = @"server=(localdb)\v11.0;database=WroxMenus1";
+    private const string connectionString = @"server=DESKTOP-D4M1C0B;database=WroxMenus1";
     public MenuContext()
       : base(connectionString)
     {

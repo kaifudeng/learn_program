@@ -64,7 +64,6 @@
     </Compile>
     <Compile Include="Menu.cs" />
     <Compile Include="MenuCard.cs" />
-    <Compile Include="MenuCardInitializer.cs" />
     <Compile Include="MenuContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
