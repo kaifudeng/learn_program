@@ -99,5 +99,28 @@ namespace 序列化对象
             sr.Serialize(tr, inv);
             tr.Close();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            XmlAttributes attrs = new XmlAttributes();
+            attrs.XmlElements.Add(new XmlElementAttribute("book", typeof(BookProduct)));
+            attrs.XmlElements.Add(new XmlElementAttribute("Product", typeof(Product)));
+
+            XmlAttributeOverrides attrOver = new XmlAttributeOverrides();
+            attrOver.Add(typeof(Inventory), "InventoryItems", attrs);
+            Inventory newinv;
+            FileStream f = new FileStream("inventory.xml", FileMode.Open); 
+            XmlSerializer newSr= new XmlSerializer(typeof(Inventory), attrOver);
+
+            newinv = (Inventory)newSr.Deserialize(f);
+            if (newinv != null)
+            {
+                foreach(Product prod in newinv.InventoryItems)
+                {
+                    richTextBox1.Text += prod.ProductName;
+                }
+            }
+            f.Close();
+        }
     }
 }
