@@ -60,7 +60,7 @@
             <Button Width="100" Height="130" Content="huahua!"  Margin="5" Foreground="White">
                 
                 <Button.Background>
-                    <ImageBrush x:Name="a"  ImageSource="huahua.jpg"/> 
+                    <ImageBrush x:Name="a"  ImageSource="C:\Users\邓凯夫\source\repos\kaifudeng\learn_program\画笔\Picture\huahua.jpg"/> 
                 </Button.Background>
                 
             </Button>

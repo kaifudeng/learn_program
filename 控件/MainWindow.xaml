@@ -23,9 +23,9 @@
         </Viewbox>
         <BulletDecorator>
             <BulletDecorator.Bullet>
-                <Image Width="25" Height="50" Margin="5" HorizontalAlignment="Center"
+                <Image Width="100" Height="200" Margin="5" HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Source="huahua.jpg"/>
+                       Source="C:\Users\邓凯夫\source\repos\kaifudeng\learn_program\画笔\Picture\huahua.jpg"/>
             </BulletDecorator.Bullet>
             <BulletDecorator.Child>
                 <TextBlock VerticalAlignment="Center" Padding="8" >huahuahuahuahuamomiji</TextBlock>
